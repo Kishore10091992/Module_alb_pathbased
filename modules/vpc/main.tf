@@ -1,0 +1,48 @@
+resource "aws_vpc" "main_vpc" {
+ cidr_block = var.vpc_cidr
+ tags = var.tags
+}
+
+resource "aws_subnet" "main_subnet-1" {
+ cidr_block = var.sub_1-cidr
+ availability_zone = var.az-1
+ tags = var.tags
+}
+
+resource "aws_subnet" "main_subnet-2" {
+ cidr_block = var.sub_2-cidr
+ availability_zone = var.az-2
+ tags = var.tags
+}
+
+resource "aws_internet_gateway" "main_IGW" {
+ vpc_id = aws_vpc.main_vpc.id
+ tags = var.tags
+}
+
+resource "aws_route_table" "main_rt" {
+ vpc_id = aws_vpc.main_vpc.id
+ 
+ route {
+  cidr_block = var.route_ip
+  gateway_id = aws_internet_gateway.main_IGE.id
+ }
+ 
+ tags = var.tags
+}
+
+resource "aws_route_table_association" "sub-1_rt_asso" {
+ route_table_id = aws_route_table.main_rt.id
+ subnet_id = aws_subnet.main_subnet-1.id
+}
+
+resource "aws_route_table_association" "sub-2_rt_asso" {
+ route_table_id = aws_route_table.main_rt.id
+ subnet_id = aws_subnet.main_subnet-2.id
+}
+
+resource "aws_network_interface" "app-1" {
+ subnet_id = aws_subnet.main_subnet-1.id
+ security_groups = 
+}
+
