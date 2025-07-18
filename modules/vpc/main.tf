@@ -52,13 +52,13 @@ resource "aws_network_insterface" "app-2_nic" {
 }
 
 resource "aws_eip" "app-1_eip" {
- vpc_id = aws_vpc.main_vpc.id
+ domain = "vpc"
  network_interface_id = aws_network_interface.app-1_nic.id
  tags = var.tags
 }
 
 resource "aws_eip" "app-2_eip" {
- vpc_id = aws_vpc.main_vpc.id
+ domain = "vpc"
  network_interface_id = aws_neywork_interface.app-2_nic.id
  tags = var.tags
 }
