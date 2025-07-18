@@ -41,8 +41,24 @@ resource "aws_route_table_association" "sub-2_rt_asso" {
  subnet_id = aws_subnet.main_subnet-2.id
 }
 
-resource "aws_network_interface" "app-1" {
+resource "aws_network_interface" "app-1_nic" {
  subnet_id = aws_subnet.main_subnet-1.id
  security_groups = 
 }
 
+resource "aws_network_insterface" "app-2_nic" {
+ subnet_id = aws_subnet.main_subnet-2.id
+ security_groups =
+}
+
+resource "aws_eip" "app-1_eip" {
+ vpc_id = aws_vpc.main_vpc.id
+ network_interface_id = aws_network_interface.app-1_nic.id
+ tags = var.tags
+}
+
+resource "aws_eip" "app-2_eip" {
+ vpc_id = aws_vpc.main_vpc.id
+ network_interface_id = aws_neywork_interface.app-2_nic.id
+ tags = var.tags
+}
