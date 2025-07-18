@@ -28,6 +28,11 @@ variable "tags" {
  type = string
 }
 
+variable "main_sg" {
+ description = "sg id"
+ type = string
+}
+
 variable "route_ip" {
  description = "route ip"
  type = string
