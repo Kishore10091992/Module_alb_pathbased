@@ -9,10 +9,10 @@ resource "aws_security_group" "main_sg" {
  }
 
  egress {
-  from_port = 
-  to_port =
-  protocol =
-  cidr_blocks =
+  from_port = var.from_port
+  to_port = var.to_port
+  protocol = var.protocol
+  cidr_blocks = var.cidr_blocks
  }
 
  tags = var.tags
