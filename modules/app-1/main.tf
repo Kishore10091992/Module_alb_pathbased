@@ -1,5 +1,14 @@
 resource "aws_instance" "main_ec2" {
- ami = 
- instance_type = 
- key_name = 
+ ami = var.ami_id
+ instance_type = var.instance_type
+ key_name = var.key_name
  
+ network_interface {
+  device_index = 0
+  network_interface_id = aws_network_interface.app-1_nic.id
+ }
+
+ user_data = var.app-1_userdata
+
+ tags = var.tags
+ }
