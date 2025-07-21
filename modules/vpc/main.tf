@@ -25,7 +25,7 @@ resource "aws_route_table" "main_rt" {
  
  route {
   cidr_block = var.route_ip
-  gateway_id = aws_internet_gateway.main_IGE.id
+  gateway_id = aws_internet_gateway.main_IGW.id
  }
  
  tags = var.tags
