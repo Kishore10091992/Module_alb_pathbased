@@ -1,8 +1,3 @@
-variable "vpc_id" {
- description = "id for vpc"
- type = string
-}
-
 variable "from_port" {
  description = "sg from port"
  type = string
