@@ -23,7 +23,32 @@ variable "az-2" {
  type = string
 }
 
-variable "tags" {
+variable "vpc_tags" {
+ description = "tags"
+ type = string
+}
+
+variable "sub-1_tags" {
+ description = "tags"
+ type = string
+}
+
+variable "sub-2_tags" {
+ description = "tags"
+ type = string
+}
+
+variable "IGW_tags" {
+ description = "tags"
+ type = string
+}
+
+variable "app-1_eip_tags" {
+ description = "tags"
+ type = string
+}
+
+variable "app-2_eip_tags" {
  description = "tags"
  type = string
 }
