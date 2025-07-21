@@ -43,12 +43,12 @@ resource "aws_route_table_association" "sub-2_rt_asso" {
 
 resource "aws_network_interface" "app-1_nic" {
  subnet_id = aws_subnet.main_subnet-1.id
- security_groups = var.main_sg
+ security_groups = aws_security_group.main_sg.id
 }
 
 resource "aws_network_insterface" "app-2_nic" {
  subnet_id = aws_subnet.main_subnet-2.id
- security_groups = var.main_sg
+ security_groups = aws_security_group.main_sg.id
 }
 
 resource "aws_eip" "app-1_eip" {
