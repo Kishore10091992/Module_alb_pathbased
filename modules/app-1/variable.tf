@@ -18,6 +18,11 @@ variable "app-1_userdata" {
  type = string
 }
 
+variable "app-1_nic_id"
+ description = "app 1 nic id"
+ type = string
+}
+
 variable "tags" {
  description = "app-1 tags"
  type = map(string)
