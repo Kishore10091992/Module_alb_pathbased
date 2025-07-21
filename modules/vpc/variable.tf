@@ -53,6 +53,11 @@ variable "app-2_eip_tags" {
  type = string
 }
 
+variable "rt_tags" {
+ description = "tags"
+ type = string
+}
+
 variable "main_sg" {
  description = "sg id"
  type = string
