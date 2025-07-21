@@ -17,7 +17,7 @@ resource "aws_subnet" "main_subnet-2" {
 
 resource "aws_internet_gateway" "main_IGW" {
  vpc_id = aws_vpc.main_vpc.id
- tags = var.tags
+ tags = var.IGW_tags
 }
 
 resource "aws_route_table" "main_rt" {
@@ -28,7 +28,7 @@ resource "aws_route_table" "main_rt" {
   gateway_id = aws_internet_gateway.main_IGW.id
  }
  
- tags = var.IGW_tags
+ tags = var.rt_tags
 }
 
 resource "aws_route_table_association" "sub-1_rt_asso" {
