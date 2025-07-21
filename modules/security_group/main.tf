@@ -1,5 +1,5 @@
 resource "aws_security_group" "main_sg" {
- vpc_id = var.vpc_id
+ vpc_id = aws_vpc.main_vpc.id
 
  ingress {
   from_port = var.from_port
