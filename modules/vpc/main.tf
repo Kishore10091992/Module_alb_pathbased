@@ -1,18 +1,18 @@
 resource "aws_vpc" "main_vpc" {
  cidr_block = var.vpc_cidr
- tags = var.tags
+ tags = var.vpc_tags
 }
 
 resource "aws_subnet" "main_subnet-1" {
  cidr_block = var.sub_1-cidr
  availability_zone = var.az-1
- tags = var.tags
+ tags = var.sub-1_tags
 }
 
 resource "aws_subnet" "main_subnet-2" {
  cidr_block = var.sub_2-cidr
  availability_zone = var.az-2
- tags = var.tags
+ tags = var.sub-2_tags
 }
 
 resource "aws_internet_gateway" "main_IGW" {
@@ -28,7 +28,7 @@ resource "aws_route_table" "main_rt" {
   gateway_id = aws_internet_gateway.main_IGW.id
  }
  
- tags = var.tags
+ tags = var.IGW_tags
 }
 
 resource "aws_route_table_association" "sub-1_rt_asso" {
@@ -54,11 +54,11 @@ resource "aws_network_insterface" "app-2_nic" {
 resource "aws_eip" "app-1_eip" {
  domain = "vpc"
  network_interface_id = aws_network_interface.app-1_nic.id
- tags = var.tags
+ tags = var.app-1_eip_tags
 }
 
 resource "aws_eip" "app-2_eip" {
  domain = "vpc"
  network_interface_id = aws_neywork_interface.app-2_nic.id
- tags = var.tags
+ tags = var.app-2_eip_tags
 }
