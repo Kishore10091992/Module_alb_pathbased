@@ -18,6 +18,11 @@ variable "cidr_blocks" {
  type = string
 }
 
+variable "vpc_id" {
+ description = "vpc id"
+ type = string
+}
+
 variable "tags" {
  description = "sg tags"
  type = map(string)
