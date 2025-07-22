@@ -38,3 +38,32 @@ module "security_group" {
  tags = { Name = "main_security_group" }
 }
 
+data "aws_ami" "ec2_ami" {
+ most_recent = true
+ owners = ["amazon"]
+ filter {
+  name = "name"
+  vales = ["amzn2-ami-hvm-*]
+ }
+}
+
+resource "tls_private_key" "generate_key" {
+ algorithm = "RSA"
+ rsa_bits = 4096
+}
+
+resource "aws_key_apir" "main_key" {
+ key_name = "main_key"
+ public_key = tls_private_key.generate_key.public_key_openssh
+
+ tags {
+  Name = "main_key"
+ }
+}
+
+module "app-1" {
+ source = "./modules/app-1"
+ ami_id = data.aws_ami.ec2_ami.ami_id
+ instance_type = "t2.micro"
+ key_name = aws_key_pair.main_key.key_name
+ app-1_nic_id = module.vpc.app-1_nic_id
