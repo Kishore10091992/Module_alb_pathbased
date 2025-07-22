@@ -56,7 +56,7 @@ resource "aws_key_apir" "main_key" {
  key_name = "main_key"
  public_key = tls_private_key.generate_key.public_key_openssh
 
- tags {
+ tags = {
   Name = "main_key"
  }
 }
@@ -67,3 +67,47 @@ module "app-1" {
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-1_nic_id
+ app-1_user_data = {
+                     #!/bin/bash
+                     yum update -y
+                     amazon-linux-extras install nginx1 -y
+                     systemctl enable nginx
+                     systemctl start nginx
+                     mkdir -p /usr/share/nginx/html/app-1
+                     echo "This is app-1" > /usr/share/nginx/html/app-1/index.html
+                   }
+ tags = { Name = "app-1_ec2" }
+}
+
+module "app-2" {
+ source = "./modules/app-2"
+ ami_id = data.aws_ami.ec2_ami.ami_id
+ instance_type = "t2.micro"
+ key_name = aws_key_pair.main_key.key_name
+ app-1_nic_id = module.vpc.app-2_nic_id
+ app-1_user_data = {
+                     #!/bin/bash
+                     yum update -y
+                     amazon-linux-extras install nginx1 -y
+                     systemctl enable nginx
+                     systemctl start nginx
+                     mkdir -p /usr/share/nginx/html/app-1
+                     echo "This is app-2" > /usr/share/nginx/html/app-1/index.html
+                   }
+ tags = { Name = "app-2_ec2" }
+}
+
+module "alb" {
+ source = "./modules/alb"
+ internal = true
+ lb_type = "application"
+ sg_id = module.security_group.sg_id
+ subnet-1_id = module.vpc.subnet-1_id
+ subnet-2_id = module.vpc.subnet-2_id
+ lb_tags = { Name = "main_alb" }
+ vpc_id = module.vpc.vpc_id
+ app-1_tg_tags = { Name = "app-1_tg" }
+ app-1_id = module.app-1.app-1_id
+ app-2_tg_tags = { Name = "app-1_tg" }
+ app-2_id = maodule.app-2.app-2_id
+}
