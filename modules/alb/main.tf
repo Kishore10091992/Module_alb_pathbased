@@ -3,14 +3,14 @@ resource "aws_lb" "main_lb" {
  load_balancer_type = var.lb_type
  security_groups = [var.sg_id]
  subnets = [var.subnet-1_id, var.subnet-2_id]
- tags = var.tags
+ tags = var.lb_tags
 }
 
 resource "aws_lb_target_group" "app-1_tg" {
  port = 80
  protocol = "HTTP"
  vpc_id = var.vpc_id
- tags = var.tags
+ tags = var.app-1_tg_tags
 }
 
 resource "aws_lb_target_group_attachment" "app-1_tg_attach" {
@@ -23,7 +23,7 @@ resource "aws_lb_target_group" "app-2_tg" {
  port = 80
  protocol = "HTTP"
  vpc_id = var.vpc_id
- tags = var.tags
+ tags = var.app-2_tg_tags
 }
 
 resource "aws_lb_target_group_attachement" "app-2_tg_attach" {
