@@ -8,7 +8,17 @@ variable "lb_type" {
  type = string
 }
 
-variable "tags" {
+variable "lb_tags" {
+ description = "lb tag"
+ type = string
+}
+
+variable "app-1_tg_tags" {
+ description = "lb tag"
+ type = string
+}
+
+variable "app-2_tg_tags" {
  description = "lb tag"
  type = string
 }
