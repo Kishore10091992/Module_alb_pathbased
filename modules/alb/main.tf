@@ -1,34 +1,34 @@
 resource "aws_lb" "main_lb" {
  internal = var.internal
  load_balancer_type = var.lb_type
- security_groups = [aws_security_group.main_sg.id]
- subnets = [aws_subnet.main_subnet-1.id, aws_subnet.main_subnet-2.id]
+ security_groups = [var.sg_id]
+ subnets = [var.subnet-1_id, var.subnet-2_id]
  tags = var.tags
 }
 
 resource "aws_lb_target_group" "app-1_tg" {
  port = 80
  protocol = "HTTP"
- vpc_id = aws_vpc.main_vpc.id
+ vpc_id = var.vpc_id
  tags = var.tags
 }
 
 resource "aws_lb_target_group_attachment" "app-1_tg_attach" {
  target_group_arn = aws_lb_target_group.app-1_tg.arn
- target_id = aws_instance.app-1_ec2.id
+ target_id = var.app-1_id
  port = 80
 }
 
 resource "aws_lb_target_group" "app-2_tg" {
  port = 80
  protocol = "HTTP"
- vpc_id = aws_vpc.main_vpc.id
+ vpc_id = var.vpc_id
  tags = var.tags
 }
 
 resource "aws_lb_target_group_attachement" "app-2_tg_attach" {
  target_group_arn = aws_lb_target_group.app-2_tg.arn
- target_id = aws_instance.app-2_ec2.id
+ target_id = var.app-2_id
  port = 80
 }
 
