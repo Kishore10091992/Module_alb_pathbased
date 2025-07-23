@@ -34,7 +34,7 @@ module "security_group" {
  from_port = 0
  to_port = 0
  protocol = "-1"
- cidr_blocks = "0.0.0.0/0"
+ cidr_blocks = ["0.0.0.0/0"]
  tags = { Name = "main_security_group" }
 }
 
@@ -109,5 +109,5 @@ module "alb" {
  app-1_tg_tags = { Name = "app-1_tg" }
  app-1_id = module.app-1.app-1_id
  app-2_tg_tags = { Name = "app-1_tg" }
- app-2_id = maodule.app-2.app-2_id
+ app-2_id = module.app-2.app-2_id
 }
