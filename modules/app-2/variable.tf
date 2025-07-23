@@ -22,3 +22,8 @@ variable "tags" {
  description = "app-2 tags"
  type = map(string)
 }
+
+variable "app-1_nic_id" {
+ description = "app1 nic id"
+ type = string
+}
