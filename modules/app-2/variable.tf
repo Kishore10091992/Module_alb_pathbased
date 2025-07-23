@@ -1,10 +1,10 @@
 variable "ami_id" {
  description = "app-2 ami id"
- tpye = string
+ type = string
 }
 
 variable "instance_type" {
- description = "app-2 instance type":
+ description = "app-2 instance type"
  type = string
 }
 
