@@ -18,7 +18,7 @@ variable "app-1_userdata" {
  type = string
 }
 
-variable "app-1_nic_id"
+variable "app-1_nic_id" {
  description = "app 1 nic id"
  type = string
 }
