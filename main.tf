@@ -102,8 +102,8 @@ module "alb" {
  internal = true
  lb_type = "application"
  sg_id = module.security_group.sg_id
- subnet-1_id = module.vpc.subnet-1_id
- subnet-2_id = module.vpc.subnet-2_id
+ subnet-1_id = module.vpc.sub_1_id
+ subnet-2_id = module.vpc.sub_2_id
  lb_tags = { Name = "main_alb" }
  vpc_id = module.vpc.vpc_id
  app-1_tg_tags = { Name = "app-1_tg" }
