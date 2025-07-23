@@ -40,8 +40,8 @@ resource "aws_lb_listener" "main_lb_listener" {
  default_action {
   type = "fixed_response"
 
-  fixed_response {
-   content_type = "text/plan"
+  fixed-response {
+   content_type = "text/plain"
    message_body = "not found"
    status_code = "404"
   }
@@ -59,7 +59,7 @@ resource "aws_lb_listener_rule" "app-1_listener_rule" {
 
  condition {
   path_pattern {
-   value = ["/app-1"]
+   values = ["/app-1"]
   }
  }
 }
@@ -75,7 +75,7 @@ resource "aws_lb_listener_rule" "app-2_listener_rule" {
 
  condition {
   path_pattern {
-   value = ["/app-2"]
+   values = ["/app-2"]
   }
  }
 }
