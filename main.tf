@@ -52,7 +52,7 @@ resource "tls_private_key" "generate_key" {
  rsa_bits = 4096
 }
 
-resource "aws_key_apir" "main_key" {
+resource "aws_key_pair" "main_key" {
  key_name = "main_key"
  public_key = tls_private_key.generate_key.public_key_openssh
 
