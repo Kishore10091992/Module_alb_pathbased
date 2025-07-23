@@ -61,6 +61,6 @@ resource "aws_eip" "app-1_eip" {
 
 resource "aws_eip" "app-2_eip" {
  domain = "vpc"
- network_interface = aws_neywork_interface.app-2_nic.id
+ network_interface = aws_network_interface.app-2_nic.id
  tags = var.app-2_eip_tags
 }
