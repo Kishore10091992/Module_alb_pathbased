@@ -5,12 +5,12 @@ output "vpc_id" {
 
 output "sub_1_id" {
  description = "subnet 1 id"
- value = aws_subnet.main_subnet-1.id
+ value = aws_subnet.main_subnet_1.id
 }
 
 output "sub_2_id" {
  description = "subnet 2 id"
- value = aws_subnet.main_subnet-2.id
+ value = aws_subnet.main_subnet_2.id
 }
 
 output "IGW_id" {
