@@ -3,14 +3,14 @@ resource "aws_vpc" "main_vpc" {
  tags = var.vpc_tags
 }
 
-resource "aws_subnet" "main_subnet-1" {
+resource "aws_subnet" "main_subnet_1" {
  vpc_id = aws_vpc.main_vpc.id
  cidr_block = var.sub_1-cidr
  availability_zone = var.az-1
  tags = var.sub-1_tags
 }
 
-resource "aws_subnet" "main_subnet-2" {
+resource "aws_subnet" "main_subnet_2" {
  vpc_id = aws_vpc.main_vpc.id
  cidr_block = var.sub_2-cidr
  availability_zone = var.az-2
