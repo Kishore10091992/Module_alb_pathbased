@@ -15,10 +15,10 @@ module "vpc" {
  source = "./modules/vpc"
  vpc_cidr = "172.168.0.0/16"
  vpc_tags = { Name = "main_vpc" }
- sub-1_cidr = "172.168.0.0/24"
+ sub_1-cidr = "172.168.0.0/24"
  az-1 = "us-east-1a"
  sub-1_tags = { Name = "main_subnet-1" }
- sub-2_cidr = "172.168.1.0/24"
+ sub_2-cidr = "172.168.1.0/24"
  az-2 = "us-east-1c"
  sub-2_tags = { Name = "main_subnet-2" }
  IGW_tags = { Name = "main_IGW" }
