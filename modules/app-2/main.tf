@@ -5,7 +5,7 @@ resource "aws_instance" "app-2_ec2" {
 
  network_interface {
   device_index = 0
-  network_interface_id = aws_network_interface.app-2_nic.id
+  network_interface_id = var.app-2_nic_id
  }
 
  user_data = var.app_2_userdata
