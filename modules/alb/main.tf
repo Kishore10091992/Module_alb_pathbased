@@ -32,7 +32,7 @@ resource "aws_lb_target_group_attachement" "app-2_tg_attach" {
  port = 80
 }
 
-resorce "aws_lb_listener" "main_lb_listener" {
+resource "aws_lb_listener" "main_lb_listener" {
  port = 80
  protocol = "HTTP"
  load_balancer_arn = aws_lb.main_lb.arn
