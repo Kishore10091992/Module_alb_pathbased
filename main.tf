@@ -68,7 +68,7 @@ module "app-1" {
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-1_nic_id
  app-1_user_data = {
-  user_data = <<EOF
+  user_data = <<-EOF
                      #!/bin/bash
                      yum update -y
                      amazon-linux-extras install nginx1 -y
@@ -88,7 +88,7 @@ module "app-2" {
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-2_nic_id
  app-1_user_data = {
-  user_data = <<EOF
+  user_data = <<-EOF
                      #!/bin/bash
                      yum update -y
                      amazon-linux-extras install nginx1 -y
