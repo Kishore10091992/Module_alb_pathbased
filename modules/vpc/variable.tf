@@ -25,40 +25,40 @@ variable "az-2" {
 
 variable "vpc_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "sub-1_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "sub-2_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "IGW_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "app-1_eip_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "app-2_eip_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "rt_tags" {
  description = "tags"
- type = string
+ type = map(string)
 }
 
 variable "route_ip" {
  description = "route ip"
- type = string
+ type = map(string)
 }
