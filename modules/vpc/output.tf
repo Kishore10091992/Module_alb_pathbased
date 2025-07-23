@@ -3,12 +3,12 @@ output "vpc_id" {
  value = aws_vpc.main_vpc.id
 }
 
-output "sub-1_id" {
+output "sub_1_id" {
  description = "subnet 1 id"
  value = aws_subnet.main_subnet-1.id
 }
 
-output "sub-2_id" {
+output "sub_2_id" {
  description = "subnet 2 id"
  value = aws_subnet.main_subnet-2.id
 }
