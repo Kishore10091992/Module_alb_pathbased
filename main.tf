@@ -43,7 +43,7 @@ data "aws_ami" "ec2_ami" {
  owners = ["amazon"]
  filter {
   name = "name"
-  vales = ["amzn2-ami-hvm-*]
+  vales = ["amzn2-ami-hvm-*"]
  }
 }
 
@@ -68,6 +68,7 @@ module "app-1" {
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-1_nic_id
  app-1_user_data = {
+  user_data = <<EOF
                      #!/bin/bash
                      yum update -y
                      amazon-linux-extras install nginx1 -y
@@ -75,7 +76,8 @@ module "app-1" {
                      systemctl start nginx
                      mkdir -p /usr/share/nginx/html/app-1
                      echo "This is app-1" > /usr/share/nginx/html/app-1/index.html
-                   }
+                EOF                   
+  }
  tags = { Name = "app-1_ec2" }
 }
 
@@ -86,6 +88,7 @@ module "app-2" {
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-2_nic_id
  app-1_user_data = {
+  user_data = <<EOF
                      #!/bin/bash
                      yum update -y
                      amazon-linux-extras install nginx1 -y
@@ -93,7 +96,8 @@ module "app-2" {
                      systemctl start nginx
                      mkdir -p /usr/share/nginx/html/app-1
                      echo "This is app-2" > /usr/share/nginx/html/app-1/index.html
-                   }
+            EOF
+   }
  tags = { Name = "app-2_ec2" }
 }
 
