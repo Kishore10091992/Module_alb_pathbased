@@ -5,12 +5,12 @@ output "vpc_id" {
 
 output "sub_1-id" {
  description = "subnet 1 id"
- value = module.vpc.sub-1_id
+ value = module.vpc.sub_1_id
 }
 
 output "sub_2-id" {
  description = "subnet 2 id"
- value = module.vpc.sub-2_id
+ value = module.vpc.sub_2_id
 }
 
 output "IGW_id" {
