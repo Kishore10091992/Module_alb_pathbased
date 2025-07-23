@@ -20,5 +20,5 @@ output "app-2_tg_arn" {
 
 output "aws_lb_listener" {
  description = "listener arn"
- value = aws_lb_listener.main_listener.arn
+ value = aws_lb_listener.main_lb_listener.arn
 }
