@@ -28,12 +28,12 @@ variable "sg_id" {
  type = string
 }
 
-variable "subnet-1_id" {
+variable "sub_1_id" {
  description = "subnet 1 id"
  type= string
 }
 
-variable "subnet-2_id" {
+variable "sub_2_id" {
  description = "subnet 2 id"
  type = string
 }
