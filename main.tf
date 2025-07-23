@@ -67,7 +67,7 @@ module "app-1" {
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-1_nic_id
- app-1_user_data = {
+ app-1_userdata = {
   user_data = <<-EOF
                      #!/bin/bash
                      yum update -y
@@ -87,7 +87,7 @@ module "app-2" {
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-2_nic_id
- app-1_user_data = {
+ app-2_userdata = {
   user_data = <<-EOF
                      #!/bin/bash
                      yum update -y
