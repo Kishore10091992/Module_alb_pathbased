@@ -13,7 +13,7 @@ variable "key_name" {
  type = string
 }
 
-variable "app-1_userdata" {
+variable "app_2_userdata" {
  description = "app-1 userdata"
  type = string
 }
