@@ -86,7 +86,7 @@ module "app-2" {
  ami_id = data.aws_ami.ec2_ami.ami_id
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
- app-1_nic_id = module.vpc.app-2_nic_id
+ app-2_nic_id = module.vpc.app-2_nic_id
  app_2_userdata = {
   user_data = <<-EOF
                      #!/bin/bash
