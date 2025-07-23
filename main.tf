@@ -67,8 +67,7 @@ module "app-1" {
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-1_nic_id
- app_1_userdata = {
-  user_data = <<-EOF
+ app_1_userdata = <<-EOF
                      #!/bin/bash
                      yum update -y
                      amazon-linux-extras install nginx1 -y
@@ -76,8 +75,7 @@ module "app-1" {
                      systemctl start nginx
                      mkdir -p /usr/share/nginx/html/app-1
                      echo "This is app-1" > /usr/share/nginx/html/app-1/index.html
-                EOF                   
-  }
+                EOF
  tags = { Name = "app-1_ec2" }
 }
 
@@ -87,8 +85,7 @@ module "app-2" {
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-2_nic_id = module.vpc.app-2_nic_id
- app_2_userdata = {
-  user_data = <<-EOF
+ app_2_userdata = <<-EOF
                      #!/bin/bash
                      yum update -y
                      amazon-linux-extras install nginx1 -y
@@ -97,7 +94,6 @@ module "app-2" {
                      mkdir -p /usr/share/nginx/html/app-1
                      echo "This is app-2" > /usr/share/nginx/html/app-1/index.html
             EOF
-   }
  tags = { Name = "app-2_ec2" }
 }
 
