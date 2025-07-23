@@ -8,7 +8,7 @@ resource "aws_instance" "app-1_ec2" {
   network_interface_id = var.app-1_nic_id
  }
 
- user_data = var.app-1_userdata
+ user_data = var.app_1_userdata
 
  tags = var.tags
  }
