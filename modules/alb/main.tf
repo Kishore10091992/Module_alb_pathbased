@@ -26,7 +26,7 @@ resource "aws_lb_target_group" "app-2_tg" {
  tags = var.app-2_tg_tags
 }
 
-resource "aws_lb_target_group_attachement" "app-2_tg_attach" {
+resource "aws_lb_target_group_attachment" "app-2_tg_attach" {
  target_group_arn = aws_lb_target_group.app-2_tg.arn
  target_id = var.app-2_id
  port = 80
