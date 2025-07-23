@@ -23,7 +23,7 @@ variable "tags" {
  type = map(string)
 }
 
-variable "app-1_nic_id" {
- description = "app1 nic id"
+variable "app-2_nic_id" {
+ description = "app 2 nic id"
  type = string
 }
