@@ -63,7 +63,7 @@ resource "aws_key_pair" "main_key" {
 
 module "app-1" {
  source = "./modules/app-1"
- ami_id = data.aws_ami.ec2_ami.ami_id
+ ami_id = data.aws_ami.ec2_ami.id
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-1_nic_id = module.vpc.app-1_nic_id
@@ -83,7 +83,7 @@ module "app-1" {
 
 module "app-2" {
  source = "./modules/app-2"
- ami_id = data.aws_ami.ec2_ami.ami_id
+ ami_id = data.aws_ami.ec2_ami.id
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
  app-2_nic_id = module.vpc.app-2_nic_id
