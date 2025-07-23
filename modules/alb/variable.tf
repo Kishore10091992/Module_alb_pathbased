@@ -10,7 +10,7 @@ variable "lb_type" {
 
 variable "lb_tags" {
  description = "lb tag"
- type = string
+ type = map(string)
 }
 
 variable "app-1_tg_tags" {
