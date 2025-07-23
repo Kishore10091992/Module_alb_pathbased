@@ -15,12 +15,12 @@ variable "lb_tags" {
 
 variable "app-1_tg_tags" {
  description = "lb tag"
- type = string
+ type = map(string)
 }
 
 variable "app-2_tg_tags" {
  description = "lb tag"
- type = string
+ type = map(string)
 }
 
 variable "sg_id" {
