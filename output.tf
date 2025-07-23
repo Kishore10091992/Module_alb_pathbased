@@ -48,7 +48,7 @@ output "app-2_id" {
  value = module.app-2.app-2_id
 }
 
-output = "lb_id" {
+output "lb_id" {
  description = "load balancer id"
  value = module.alb.lb_id
 }
