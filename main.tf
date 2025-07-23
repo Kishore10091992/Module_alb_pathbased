@@ -24,6 +24,7 @@ module "vpc" {
  IGW_tags = { Name = "main_IGW" }
  route_ip = "0.0.0.0/0"
  rt_tags = { Name = "main_rt" }
+ sg_id = module.security_group.id
  app-1_eip_tags = { Name = "app-1_eip" }
  app-2_eip_tags = { Name = "app-2_eip" }
 }
