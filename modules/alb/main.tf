@@ -2,7 +2,7 @@ resource "aws_lb" "main_lb" {
  internal = var.internal
  load_balancer_type = var.lb_type
  security_groups = [var.sg_id]
- subnets = [var.subnet-1_id, var.subnet-2_id]
+ subnets = [var.sub_1_id, var.sub_2_id]
  tags = var.lb_tags
 }
 
