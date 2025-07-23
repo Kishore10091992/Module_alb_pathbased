@@ -15,7 +15,7 @@ variable "protocol" {
 
 variable "cidr_blocks" {
  description = "sg cidr block"
- type = string
+ type = list(string)
 }
 
 variable "vpc_id" {
