@@ -4,12 +4,14 @@ resource "aws_vpc" "main_vpc" {
 }
 
 resource "aws_subnet" "main_subnet-1" {
+ vpc_id = aws_vpc.main_vpc.id
  cidr_block = var.sub_1-cidr
  availability_zone = var.az-1
  tags = var.sub-1_tags
 }
 
 resource "aws_subnet" "main_subnet-2" {
+ vpc_id = aws_vpc.main_vpc.id
  cidr_block = var.sub_2-cidr
  availability_zone = var.az-2
  tags = var.sub-2_tags
